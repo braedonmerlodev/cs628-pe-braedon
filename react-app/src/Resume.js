@@ -30,7 +30,7 @@ const Resume = () => {
                     </p>
                     <p>
                         Source Code:{" "}
-                        <a href="https://organic-carnival-rrg4x7r4g742x56r-3000.app.github.dev/"
+                        <a href="https://github.com/braedonmerlodev/cs628-pe-braedon"
                         target="_blank"
                         rel="noopener no reffer"
                         >
