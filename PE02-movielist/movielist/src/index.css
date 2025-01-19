@@ -1,0 +1,15 @@
+.MovieList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.MovieList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.MovieList li {
+  margin: 10px 0;
+}
