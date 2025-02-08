@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Todo from './Todo';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [todos, setTodos] = useState([]);
+    const [input, setInput] = useState('');
+
+    // Method to add a new ToDo
+    const addTodo = () => {
+        if (input.trim() === '') return;
+        setTodos([...todos, input]);
+        setInput('');
+    };
+
+    // Method to delete a ToDo by index
+    const deleteTodo = (index) => {
+        const newTodos = todos.filter((_, i) => i !== index);
+        setTodos(newTodos);
+    };
+
+    return (
+        <div className="App">
+            <h1>ToDo List App</h1>
+            <div className="input-container">
+                <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder="Enter a task"
+                />
+                <button className="add-button" onClick={addTodo}>Add Task</button>
+            </div>
+            <ul>
+                {todos.map((todo, index) => (
+                    <Todo
+                        key={index}
+                        index={index}
+                        task={todo}
+                        deleteTodo={deleteTodo}
+                    />
+                ))}
+            </ul>
+        </div>
+    );
 }
 
 export default App;
